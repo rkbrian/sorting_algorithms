@@ -6,24 +6,25 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t current = NULL, prev_n = NULL, next_n = NULL, anchor = NULL;
+	listint_t current = NULL, anchor = NULL, next_n = NULL, head = NULL;
 	int tmp_num;
 
-	current = *list;
-	while (current)
+	head = *list, current = head;
+	while (current && current->next)
 	{
 		anchor = current;
-
 		next_n = current->next;
-		if (next_n->n < current->n)
+		while (next_n->n < current->n)
 		{
-			prev_n = current->prev;
 			tmp_num = current->n;
-			current->n = prev_n->n;
-			prev->n = tmp_num;
+			current->n = next_n->n;
+			next_n->n = tmp_num;
+			if (current->prev)
+				next_n = current, current = current->prev;
 		}
-
+		current = anchor->next;
 	}
+	*list = head;
 }
 
 /**
@@ -34,15 +35,13 @@ void insertion_sort_list(listint_t **list)
  */
 listint_t *create_listint(const int *array, size_t size)
 {
-	listint_t *current = NULL, *prev_n = NULL, *next_n = NULL, *head = NULL;
+	listint_t *current = NULL, *prev_n = NULL, *head = NULL;
 	size_t i;
 
-	if (array == NULL)
+	if (array == NULL || size <= 0)
 		return (NULL);
 	for (i = 0; i < size; i++)
 	{
-		if (current)
-			current->prev = prev_node, current = current->next
 		current = malloc(sizeof(listint_t));
 		if (current == NULL)
 		{
@@ -50,11 +49,13 @@ listint_t *create_listint(const int *array, size_t size)
 				current = current->prev, free(current);
 			return (NULL);
 		}
+		if (i > 0)
+			current->prev = prev_n;
 		current->n = array[i];
 		if (i == 0)
-			head = current, current->prev = NULL;
-		prev_n->next = current, prev_n = current;
+			current->prev = NULL, current->next = NULL, prev_n = current, head = current;
+		else
+			current->next = NULL, prev_n->next = current, prev_n = current;
 	}
-
 	return (head);
 }
