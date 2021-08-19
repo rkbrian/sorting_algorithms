@@ -8,3 +8,10 @@
 1. Insertion sort
 2. Selection sort
 3. Quick sort
+
+
+## In all <number>-O files:
+Big O notions of the time complexity in the each sort algorithm
+- in the best case:
+- in the average case:
+- in the worst case:
