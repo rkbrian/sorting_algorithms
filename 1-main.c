@@ -52,5 +52,6 @@ int main(void)
 	insertion_sort_list(&list);
 	printf("\n");
 	print_list(list);
+	insertion_sort_list(NULL);
 	return (0);
 }
