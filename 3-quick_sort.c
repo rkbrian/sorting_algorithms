@@ -18,6 +18,10 @@ void quick_sort(int *array, size_t size)
 
 /**
  * p_tree - generate pivot tree, print array at each time a branch is created
+ * @array: unsorted array
+ * @low_p: designated lower point in the array
+ * @high_p: designated higher point in the array
+ * @size: size of array
  */
 void p_tree(int *array, int low_p, int high_p, size_t size)
 {
@@ -40,6 +44,7 @@ void p_tree(int *array, int low_p, int high_p, size_t size)
  * @low_p: designated lower point in the array
  * @high_p: designated higher point in the array
  * @size: size of array
+ * Return: next pivot, the index for splitting
  */
 size_t lomuto(int *array, int low_p, int high_p, size_t size)
 {
