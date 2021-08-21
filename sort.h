@@ -24,7 +24,7 @@ void insertion_sort_list(listint_t **list);
 listint_t *create_listint(const int *array, size_t size);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
-void p_tree(int *array, size_t low_p, size_t high_p, size_t size);
-size_t lomuto(int *array, size_t low_p, size_t high_p, size_t size);
+void p_tree(int *array, int low_p, int high_p, size_t size);
+size_t lomuto(int *array, int low_p, int high_p, size_t size);
 
 #endif
