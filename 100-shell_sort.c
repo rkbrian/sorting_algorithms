@@ -21,7 +21,8 @@ void shell_sort(int *array, size_t size)
 				array[j + gap] = array[j]; /*shift fwd till replacing*/
 			array[j + gap] = tmp; /*if no shifting, j=i*/
 		}
-		print_array(array, size);
+		if (size > 1)
+			print_array(array, size);
 		gap = (gap - 1) / 3;
 	}
 }

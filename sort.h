@@ -28,6 +28,6 @@ void p_tree(int *array, int low_p, int high_p, size_t size);
 size_t lomuto(int *array, int low_p, int high_p, size_t size);
 /* advanced tasks */
 void shell_sort(int *array, size_t size);
-int knuth_seq(int n);
+void cocktail_sort_list(listint_t **list);
 
 #endif
