@@ -26,9 +26,9 @@ void cocktail_sort_list(listint_t **list)
 		}
 		right--, i = 0;
 		while (tail->prev)
-                	tail = tail->prev;
-	        while (i < right)
-        	        tail = tail->next, i++;
+			tail = tail->prev;
+		while (i < right)
+			tail = tail->next, i++;
 		current = tail;
 		for (i = right; i > left; i--)
 		{
@@ -39,9 +39,9 @@ void cocktail_sort_list(listint_t **list)
 		}
 		left++, i = 0;
 		while (head->prev)
-                	head = head->prev;
-	        while (i < left)
-        	        head = head->next, i++;
+			head = head->prev;
+		while (i < left)
+			head = head->next, i++;
 	}
 	while (print_h->prev)
 		print_h = print_h->prev;
@@ -53,8 +53,6 @@ void cocktail_sort_list(listint_t **list)
  * @prev_n: previous node
  * @current: current node
  * @next_n: next node
- * @head: head node for sorting range
- * @tail: tail node for sorting range
  * @print_h: true head node, also for printing purpose
  */
 void node_switch(listint_t *prev_n, listint_t *current, listint_t *next_n,
