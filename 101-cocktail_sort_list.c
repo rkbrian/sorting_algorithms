@@ -6,41 +6,50 @@
  */
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *current = NULL, *prev_n = NULL, *next_n = NULL;
-	listint_t *head = NULL, *tail = NULL, *print_h = NULL;
+	listint_t *current = NULL, *head = NULL, *tail = NULL, *print_h = NULL;
+	int left = 0, right = 0, i = 0;
 
 	if (list == NULL)
 		return;
-	head = *list, tail = head, print_h = head;
+	head = *list, tail = *list, print_h = head;
 	while (tail->next)
-		tail = tail->next;
-	while (tail->n != head->n && tail->next != head)
+		tail = tail->next, right++;
+	while (left < right)
 	{
 		current = head;
-		while (current)
+		for (i = left; i < right; i++)
 		{
-			prev_n = current->prev;
-			if (prev_n && prev_n->n > current->n)
-				shake_right(prev_n, current, next_n, head, tail, print_h);
-			current = current->next;
+			if (current->next && current->n > current->next->n)
+				node_switch(current, current->next, current->next->next, print_h);
+			else
+				current = current->next;
 		}
-		tail = tail->prev, current = tail;
-		while (current)
+		right--, i = 0;
+		while (tail->prev)
+                	tail = tail->prev;
+	        while (i < right)
+        	        tail = tail->next, i++;
+		current = tail;
+		for (i = right; i > left; i--)
 		{
-			next_n = current->next;
-			if (next_n && current->n > next_n->n)
-				shake_left(prev_n, current, next_n, head, tail, print_h);
-			current = current->prev;
+			if (current->prev && current->prev->n > current->n)
+				node_switch(current->prev, current, current->next, print_h);
+			else
+				current = current->prev;
 		}
-		head = head->next;
+		left++, i = 0;
+		while (head->prev)
+                	head = head->prev;
+	        while (i < left)
+        	        head = head->next, i++;
 	}
 	while (print_h->prev)
 		print_h = print_h->prev;
-        *list = print_h;
+	*list = print_h;
 }
 
 /**
- * shake_right - switch nodes forward in doubly linked list
+ * node_switch - switch nodes in doubly linked list
  * @prev_n: previous node
  * @current: current node
  * @next_n: next node
@@ -48,8 +57,8 @@ void cocktail_sort_list(listint_t **list)
  * @tail: tail node for sorting range
  * @print_h: true head node, also for printing purpose
  */
-void shake_right(listint_t *prev_n, listint_t *current, listint_t *next_n,
-		 listint_t *head, listint_t *tail, listint_t *print_h)
+void node_switch(listint_t *prev_n, listint_t *current, listint_t *next_n,
+		listint_t *print_h)
 {
 	next_n = current->next;
 	if (prev_n->prev)
@@ -58,38 +67,6 @@ void shake_right(listint_t *prev_n, listint_t *current, listint_t *next_n,
 	if (next_n)
 		next_n->prev = prev_n;
 	current->next = prev_n;
-	if (head->n == prev_n->n)
-		head = head->prev;
-	if (tail->n == current->n)
-		tail = tail->next;
-	while (print_h->prev)
-		print_h = print_h->prev;
-	print_list(print_h);
-}
-
-/**
- * shake_left - switch nodes backward in doubly linked list
- * @prev_n: previous node
- * @current: current node
- * @next_n: next node
- * @head: head node for sorting range
- * @tail: tail node for sorting range
- * @print_h: true head node, also for printing purpose
- */
-void shake_left(listint_t *prev_n, listint_t *current, listint_t *next_n,
-		listint_t *head, listint_t *tail, listint_t *print_h)
-{
-	prev_n = current->prev;
-	if (next_n->next)
-		next_n->next->prev = current;
-	current->next = next_n->next, next_n->prev = prev_n, next_n->next = current;
-	if (prev_n)
-		prev_n->next = next_n;
-	current->prev = next_n;
-	if (head->n == current->n)
-		head = head->prev;
-	if (tail->n == next_n->n)
-		tail = tail->next;
 	while (print_h->prev)
 		print_h = print_h->prev;
 	print_list(print_h);

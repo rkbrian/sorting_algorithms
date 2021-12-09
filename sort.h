@@ -29,9 +29,9 @@ size_t lomuto(int *array, int low_p, int high_p, size_t size);
 /* advanced tasks */
 void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
-void shake_right(listint_t *prev_n, listint_t *current, listint_t *next_n,
-		 listint_t *head, listint_t *tail, listint_t *print_n);
-void shake_left(listint_t *prev_n, listint_t *current, listint_t *next_n,
-		listint_t *head, listint_t *tail, listint_t *print_n);
+void node_switch(listint_t *prev_n, listint_t *current, listint_t *next_n,
+		listint_t *print_n);
+
+
 
 #endif /*sort of*/
