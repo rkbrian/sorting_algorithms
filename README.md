@@ -4,12 +4,13 @@
 ### How to select the best sorting algorithm for a given input;
 ### What is a stable sorting algorithm.
 
- - 0. Bubble sort
- - 1. Insertion sort
- - 2. Selection sort
- - 3. Quick sort
- - 100. Shell sort
- - 101. Cocktail shaker sort
+ - 0 Bubble sort
+ - 1 Insertion sort
+ - 2 Selection sort
+ - 3 Quick sort
+ - 100 Shell sort
+ - 101 Cocktail shaker sort
+ - 102 Counting sort
 
 ## In all "number"-O files:
 Big O notions of the time complexity in the each sort algorithm

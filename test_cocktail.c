@@ -1,5 +1,9 @@
 #include "sort.h"
 
+/**
+ * main - cocktail sort example in regular array, not in doubly linked list
+ * Return: 0
+ */
 int main(void)
 {
         int len = 20;
