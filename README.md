@@ -7,12 +7,13 @@
  - 0 Bubble sort
  - 1 Insertion sort
  - 2 Selection sort
- - 3 Quick sort
+ - 3 Quick sort - Lomuto Partition scheme
  - 100 Shell sort
  - 101 Cocktail shaker sort
  - 102 Counting sort
  - 106 Bitonic sort
  - 107 Quick sort - Hoare Partition scheme
+ - 1000 Dealer - qsort to sort a deck of cards
 
 ## In all "number"-O files:
 Big O notions of the time complexity in the each sort algorithm

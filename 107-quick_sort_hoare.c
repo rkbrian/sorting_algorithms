@@ -39,7 +39,8 @@ void p_tree(int *array, int low_p, int high_p, size_t size)
 }
 
 /**
- * hoare - Hoare partition, sorting array and then return new array section
+ * hoare - Hoare partition, sorting array and then return new array section.
+ *  Note: swap details not always the same as checker required, but it works.
  * @array: unsorted array
  * @low_p: designated lower point in the array
  * @high_p: designated higher point in the array
@@ -48,7 +49,7 @@ void p_tree(int *array, int low_p, int high_p, size_t size)
  */
 size_t hoare(int *array, int low_p, int high_p, size_t size)
 {
-	int i, j, tmp, pivot;/*, new_low = low_p, new_high = high_p;*/
+	int i, j, tmp, pivot;
 
 	pivot = array[high_p];
 	while (low_p < high_p)
@@ -64,7 +65,6 @@ size_t hoare(int *array, int low_p, int high_p, size_t size)
 		array[j] = array[i];
 		array[i] = tmp;
 		print_array(array, size);
-		/*new_low++, new_high--, pivot = array[new_high];*/
 	}
-        return (high_p);
+	return (high_p);
 }
