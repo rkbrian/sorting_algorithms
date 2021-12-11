@@ -12,6 +12,7 @@
  - 101 Cocktail shaker sort
  - 102 Counting sort
  - 106 Bitonic sort
+ - 107 Quick sort - Hoare Partition scheme
 
 ## In all "number"-O files:
 Big O notions of the time complexity in the each sort algorithm
