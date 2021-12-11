@@ -32,6 +32,6 @@ void cocktail_sort_list(listint_t **list);
 void node_switch(listint_t *prev_n, listint_t *current, listint_t *next_n,
 		listint_t *print_n);
 void counting_sort(int *array, size_t size);
-
+void bitonic_sort(int *array, size_t size);
 
 #endif /*sort of*/

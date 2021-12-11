@@ -11,6 +11,7 @@
  - 100 Shell sort
  - 101 Cocktail shaker sort
  - 102 Counting sort
+ - 106 Bitonic sort
 
 ## In all "number"-O files:
 Big O notions of the time complexity in the each sort algorithm
