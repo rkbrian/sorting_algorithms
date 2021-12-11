@@ -36,5 +36,6 @@ void bitonic_sort(int *array, size_t size);
 void recur_bitonic(int *arr, int len, int lowi, int seglen, int flag);
 void seg_merge(int *arr, int len, int lowi, int seglen, int flag);
 void quick_sort_hoare(int *array, size_t size);
+size_t hoare(int *array, int low_p, int high_p, size_t size);
 
 #endif /*sort of*/
