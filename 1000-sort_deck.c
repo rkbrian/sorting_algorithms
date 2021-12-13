@@ -28,7 +28,6 @@ void chain_reaction(deck_node_t **array, int size)
  * @array: unsorted array of nodes
  * @low_p: designated lower point in the array
  * @high_p: designated higher point in the array
- * @size: size of array
  */
 void p_tree_deck(deck_node_t **array, int low_p, int high_p)
 {
@@ -43,11 +42,10 @@ void p_tree_deck(deck_node_t **array, int low_p, int high_p)
 }
 
 /**
- * hoare - Hoare partition, sorting array and then return new array section.
+ * hoare_deck - Hoare partition to sorting array and return new array section
  * @array: unsorted array
  * @low_p: designated lower point in the array
  * @high_p: designated higher point in the array
- * @size: size of array
  * Return: next pivot, the index for splitting
  */
 int hoare_deck(deck_node_t **array, int low_p, int high_p)
