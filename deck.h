@@ -47,7 +47,6 @@ typedef struct deck_node_s
 
 void sort_deck(deck_node_t **deck);
 void chain_reaction(deck_node_t **array, int size);
-/*void sort_of(deck_node_t **array, int size);*/
 void p_tree_deck(deck_node_t **array, int low_p, int high_p);
 int hoare_deck(deck_node_t **array, int low_p, int high_p);
 int card_select(const char *value);

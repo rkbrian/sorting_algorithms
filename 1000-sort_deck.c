@@ -3,7 +3,7 @@
 /**
  * chain_reaction - link all the card nodes in the same suits
  * @array: array of card nodes
- * @size: card of the same suits
+ * @size: card amount of the same suits
  */
 void chain_reaction(deck_node_t **array, int size)
 {
@@ -53,9 +53,9 @@ void p_tree_deck(deck_node_t **array, int low_p, int high_p)
 int hoare_deck(deck_node_t **array, int low_p, int high_p)
 {
 	int i, j, pivot;
-        deck_node_t *tmp = NULL;
+	deck_node_t *tmp = NULL;
 
-        pivot = card_select(array[high_p]->card->value);
+	pivot = card_select(array[high_p]->card->value);
 	while (low_p < high_p)
 	{
 		i = low_p, j = high_p;
@@ -79,25 +79,15 @@ int hoare_deck(deck_node_t **array, int low_p, int high_p)
  */
 int card_select(const char *value)
 {
-        if (value[0] == 'A')
-                return (ACE);
+	if (value[0] == 'A')
+		return (ACE);
 	else if (value[0] == 'J')
-                return (JACK);
+		return (JACK);
 	else if (value[0] == 'Q')
-                return (QUEEN);
+		return (QUEEN);
 	else if (value[0] == 'K')
-                return (KING);
-        return (atoi(value));
-}
-
-void sort_of(deck_node_t **array, int size)
-{
-	int i, j;
-
-	if (array == NULL || size <= 1)
-		return;
-	i = 0, j = size - 1;
-	p_tree_deck(array, i, j);
+		return (KING);
+	return (atoi(value));
 }
 
 /**
@@ -114,22 +104,22 @@ void sort_deck(deck_node_t **deck)
 	head = *deck, current = head;
 	while (current)
 	{
-                tmp = current, current = current->next;
-                if (tmp->card->kind == SPADE)
-        		Spades[a] = tmp, tmp->next = NULL, tmp->prev = NULL, a++;
-                if (tmp->card->kind == HEART)
-        		Hearts[b] = tmp, tmp->next = NULL, tmp->prev = NULL, b++;
-                if (tmp->card->kind == CLUB)
-                        Clubs[c] = tmp, tmp->next = NULL, tmp->prev = NULL, c++;
+		tmp = current, current = current->next;
+		if (tmp->card->kind == SPADE)
+			Spades[a] = tmp, tmp->next = NULL, tmp->prev = NULL, a++;
+		if (tmp->card->kind == HEART)
+			Hearts[b] = tmp, tmp->next = NULL, tmp->prev = NULL, b++;
+		if (tmp->card->kind == CLUB)
+			Clubs[c] = tmp, tmp->next = NULL, tmp->prev = NULL, c++;
 		if (tmp->card->kind == DIAMOND)
-                        Diamonds[d] = tmp, tmp->next = NULL, tmp->prev = NULL, d++;
+			Diamonds[d] = tmp, tmp->next = NULL, tmp->prev = NULL, d++;
 	}
-        p_tree_deck(Spades, 0, a - 1), p_tree_deck(Hearts, 0, b - 1);
-        p_tree_deck(Clubs, 0, c - 1), p_tree_deck(Diamonds, 0, d - 1);
+	p_tree_deck(Spades, 0, a - 1), p_tree_deck(Hearts, 0, b - 1);
+	p_tree_deck(Clubs, 0, c - 1), p_tree_deck(Diamonds, 0, d - 1);
 	chain_reaction(Spades, a), chain_reaction(Hearts, b);
-        chain_reaction(Clubs, c), chain_reaction(Diamonds, d);
+	chain_reaction(Clubs, c), chain_reaction(Diamonds, d);
 	Spades[a - 1]->next = Hearts[0], Hearts[0]->prev = Spades[a - 1];
 	Hearts[b - 1]->next = Clubs[0], Clubs[0]->prev = Hearts[b - 1];
-        Clubs[c - 1]->next = Diamonds[0], Diamonds[0]->prev = Clubs[c - 1];
-        *deck = Spades[0];
+	Clubs[c - 1]->next = Diamonds[0], Diamonds[0]->prev = Clubs[c - 1];
+	*deck = Spades[0];
 }
