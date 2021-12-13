@@ -12,6 +12,10 @@
 
 /**
  * enum kind_e - the suits of card deck to be sorted in order
+ * @SPADE: suit of spade
+ * @HEART: suit of heart
+ * @CLUB: suit of club
+ * @DIAMOND: suit of diamond
  */
 typedef enum kind_e
 {
