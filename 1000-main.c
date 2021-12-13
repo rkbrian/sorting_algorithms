@@ -57,7 +57,7 @@ int main(void)
         {"Queen", DIAMOND}, {"7", CLUB}, {"7", HEART}, {"5", CLUB}, {"10", DIAMOND}, {"4", CLUB},
         {"King", HEART}, {"Ace", HEART},
     };
-    deck_node_t *deck;
+    deck_node_t *deck, *tmp;
 
     deck = init_deck(cards);
     print_deck(deck);
@@ -65,5 +65,12 @@ int main(void)
     sort_deck(&deck);
     printf("\n");
     print_deck(deck);
+    printf("\n");
+    while (deck)
+    {
+        tmp = deck;
+        deck = deck->next;
+        free(tmp);
+    }
     return (0);
 }

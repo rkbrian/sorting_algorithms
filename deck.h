@@ -1,8 +1,14 @@
 #ifndef DECK_H
 #define DECK_H
 
+#define ACE 1
+#define JACK 11
+#define QUEEN 12
+#define KING 13
+
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 typedef enum kind_e
 {
@@ -40,5 +46,10 @@ typedef struct deck_node_s
 } deck_node_t;
 
 void sort_deck(deck_node_t **deck);
+void chain_reaction(deck_node_t **array, int size);
+/*void sort_of(deck_node_t **array, int size);*/
+void p_tree_deck(deck_node_t **array, int low_p, int high_p);
+int hoare_deck(deck_node_t **array, int low_p, int high_p);
+int card_select(const char *value);
 
 #endif /*sort of*/
